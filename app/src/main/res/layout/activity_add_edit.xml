@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddEditActivity">
+
+    <ImageView
+        android:id="@+id/selectPicAddEditIv"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="18dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_image_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CircularShape" />
+
+    <ImageView
+        android:id="@+id/noSelectImageAddEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_baseline_error_outline_24"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/selectPicAddEditIv"
+        app:layout_constraintHorizontal_bias="1.1"
+        app:layout_constraintStart_toStartOf="@id/selectPicAddEditIv"
+        app:layout_constraintTop_toTopOf="@id/selectPicAddEditIv" />
+
+    <ImageView
+        android:id="@+id/cameraPicAddEdit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_baseline_camera_alt_24"
+        app:layout_constraintBottom_toBottomOf="@id/selectPicAddEditIv"
+        app:layout_constraintEnd_toEndOf="@id/selectPicAddEditIv"
+        app:layout_constraintHorizontal_bias="1.1"
+        app:layout_constraintStart_toStartOf="@id/selectPicAddEditIv"
+        app:layout_constraintTop_toTopOf="@id/selectPicAddEditIv"
+        app:layout_constraintVertical_bias="1.1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titleAddEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectPicAddEditIv">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titleEtAddEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+            android:hint="@string/title"
+            android:inputType="textCapWords"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descAddEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@id/addNoteBtn"
+        app:layout_constraintEnd_toEndOf="@id/titleAddEdit"
+        app:layout_constraintStart_toStartOf="@id/titleAddEdit"
+        app:layout_constraintTop_toBottomOf="@id/titleAddEdit"
+        app:layout_constraintVertical_bias="0.01">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/descEtAddEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:hint="@string/description"
+            android:inputType="textMultiLine"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addNoteBtn"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/add_note"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/titleAddEdit"
+        app:layout_constraintStart_toStartOf="@id/titleAddEdit" />
+</androidx.constraintlayout.widget.ConstraintLayout>
