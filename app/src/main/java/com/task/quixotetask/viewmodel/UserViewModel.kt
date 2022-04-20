@@ -1,9 +1,11 @@
-package com.task.quixotetask
+package com.task.quixotetask.database
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.task.quixotetask.Notes
+import com.task.quixotetask.Users
 import kotlinx.coroutines.launch
 
 private const val TAG = "UserViewModel"

@@ -1,4 +1,4 @@
-package com.task.quixotetask
+package com.task.quixotetask.activity
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.lifecycle.ViewModelProvider
+import com.task.quixotetask.Notes
 import com.task.quixotetask.databinding.ActivityDetailsBinding
 
 private const val TAG = "DetailsActivity"

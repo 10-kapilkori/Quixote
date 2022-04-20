@@ -1,4 +1,4 @@
-package com.task.quixotetask
+package com.task.quixotetask.activity
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,6 +11,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.task.quixotetask.Notes
+import com.task.quixotetask.NotesAdapter
+import com.task.quixotetask.UserApplication
+import com.task.quixotetask.database.UserViewModel
+import com.task.quixotetask.database.UserViewModelFactory
 import com.task.quixotetask.databinding.ActivityHomeBinding
 
 private const val TAG = "HomeActivity"
@@ -71,7 +76,6 @@ class HomeActivity : AppCompatActivity(), NotesAdapter.OnClickEvents {
     }
 
     override fun onCardClick(list: List<Notes>, position: Int) {
-        Toast.makeText(this, position.toString(), Toast.LENGTH_SHORT).show()
         startActivity(
             Intent(
                 this, DetailsActivity::class.java

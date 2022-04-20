@@ -1,4 +1,4 @@
-package com.task.quixotetask
+package com.task.quixotetask.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,10 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.task.quixotetask.UserApplication
+import com.task.quixotetask.Users
+import com.task.quixotetask.database.UserViewModel
+import com.task.quixotetask.database.UserViewModelFactory
 import com.task.quixotetask.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity"
@@ -54,8 +58,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun validateUser(it: Users?) {
         if (it != null) {
-            Toast.makeText(this@MainActivity, it.toString(), Toast.LENGTH_SHORT)
-                .show()
             startActivity(
                 Intent(
                     this@MainActivity,

@@ -1,9 +1,11 @@
-package com.task.quixotetask
+package com.task.quixotetask.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.task.quixotetask.Notes
+import com.task.quixotetask.Users
 
 @Database(entities = [Users::class, Notes::class], exportSchema = true, version = 2)
 abstract class UserDb : RoomDatabase() {

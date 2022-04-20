@@ -1,13 +1,15 @@
-package com.task.quixotetask
+package com.task.quixotetask.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.task.quixotetask.UserApplication
+import com.task.quixotetask.Users
+import com.task.quixotetask.database.UserViewModel
+import com.task.quixotetask.database.UserViewModelFactory
 import com.task.quixotetask.databinding.ActivitySignUpBinding
-import java.util.regex.Pattern
 
 private const val TAG = "SignUpActivity"
 
@@ -54,6 +56,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     emailEtSignUp.error = "Invalid Email"
                     emailEtSignUp.requestFocus()
+                    return@setOnClickListener
                 }
 
                 if (name.isEmpty()) {
@@ -74,7 +77,7 @@ class SignUpActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
-                if (phone.length != 10 || phone[0] !in '7'..'9') {
+                if (phone.length != 10 || phone[0] !in '6'..'9') {
                     phoneEtSignUp.error = "Invalid Phone Number"
                     phoneEtSignUp.requestFocus()
                     return@setOnClickListener
@@ -108,7 +111,7 @@ class SignUpActivity : AppCompatActivity() {
                     passwordEtSignUp.requestFocus()
                     return@setOnClickListener
                 }
-                if (name.lowercase().contains(password.lowercase())) {
+                if (password.lowercase().contains(name.lowercase())) {
                     passwordEtSignUp.error = "Password cannot contain your name"
                     passwordEtSignUp.requestFocus()
                     return@setOnClickListener

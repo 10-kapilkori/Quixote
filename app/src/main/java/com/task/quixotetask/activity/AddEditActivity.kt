@@ -1,11 +1,10 @@
-package com.task.quixotetask
+package com.task.quixotetask.activity
 
 import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -13,7 +12,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.task.quixotetask.Notes
+import com.task.quixotetask.UserApplication
+import com.task.quixotetask.database.UserViewModel
+import com.task.quixotetask.database.UserViewModelFactory
 import com.task.quixotetask.databinding.ActivityAddEditBinding
 
 private const val TAG = "AddEditActivity"
@@ -104,7 +108,7 @@ class AddEditActivity : AppCompatActivity() {
     private val requestCameraPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             if (it) {
-                callIntentForImageWithCamera()
+                requestForExternalStorage()
             } else {
                 AlertDialog.Builder(this)
                     .setTitle("Allow Permission")
@@ -149,6 +153,23 @@ class AddEditActivity : AppCompatActivity() {
         imageUri = imagePath!!
         launchCameraActivity.launch(intent)
     }
+
+    private fun requestForExternalStorage() {
+        checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+        requestWriterPermission.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    }
+
+    private val requestWriterPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+            if (it) {
+                callIntentForImageWithCamera()
+            } else {
+                AlertDialog.Builder(this)
+                    .setTitle("Allow Permission")
+                    .setMessage("Please allow permission to access this feature")
+                    .show()
+            }
+        }
 
     private val launchCameraActivity =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {

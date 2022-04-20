@@ -1,9 +1,11 @@
-package com.task.quixotetask
+package com.task.quixotetask.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.task.quixotetask.Notes
+import com.task.quixotetask.Users
 
 @Dao
 interface DAO {

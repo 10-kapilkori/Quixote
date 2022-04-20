@@ -21,22 +21,22 @@
         android:theme="@style/Theme.QuixoteTask">
         <activity
             android:label="Details Screen"
-            android:name=".DetailsActivity"
+            android:name=".activity.DetailsActivity"
             android:exported="false" />
         <activity
             android:label="Add Screen"
-            android:name=".AddEditActivity"
+            android:name=".activity.AddEditActivity"
             android:exported="false" />
         <activity
             android:label="Home Screen"
-            android:name=".HomeActivity"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activity.SignUpActivity"
             android:exported="false"
             android:label="@string/sign_up" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:label="@string/sign_in">
             <intent-filter>
