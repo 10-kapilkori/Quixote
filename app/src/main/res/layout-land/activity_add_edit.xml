@@ -41,10 +41,9 @@
         android:scaleType="center"
         android:src="@drawable/ic_baseline_camera_alt_24"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
-        app:layout_constraintHorizontal_bias="1.1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/selectPicAddEditIv"
-        app:layout_constraintTop_toTopOf="@id/guideline6"
-        app:layout_constraintVertical_bias="1.1" />
+        app:layout_constraintTop_toTopOf="@id/guideline6" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/titleAddEdit"
@@ -52,10 +51,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/selectPicAddEditIv">
+        app:layout_constraintStart_toEndOf="@id/selectPicAddEditIv"
+        app:layout_constraintTop_toBottomOf="@id/selectPicAddEditIv"
+        app:layout_constraintTop_toTopOf="@id/guideline4"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/titleEtAddEdit"
@@ -75,7 +76,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toTopOf="@id/addNoteBtn"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toEndOf="@id/titleAddEdit"
         app:layout_constraintStart_toStartOf="@id/titleAddEdit"
         app:layout_constraintTop_toBottomOf="@id/titleAddEdit"
@@ -102,21 +103,21 @@
         android:text="@string/add_note"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/titleAddEdit"
-        app:layout_constraintStart_toStartOf="@id/titleAddEdit" />
+        app:layout_constraintStart_toStartOf="@id/guideline2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -137,6 +138,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.65" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
