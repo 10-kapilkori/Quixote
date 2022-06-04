@@ -9,42 +9,60 @@
 
     <ImageView
         android:id="@+id/imageDetailsIv"
-        android:layout_width="250dp"
-        android:layout_height="250sp"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0sp"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_baseline_image_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scaleType="centerCrop"
+        android:src="@color/teal_700"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toTopOf="@id/guideline4" />
 
     <TextView
         android:id="@+id/titleDetailsTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="24dp"
+        android:padding="8dp"
         android:text="@string/title"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/purple_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/imageDetailsIv"
+        app:layout_constraintStart_toStartOf="@id/imageDetailsIv"
         app:layout_constraintTop_toBottomOf="@id/imageDetailsIv" />
 
     <TextView
         android:id="@+id/descriptionDetailsTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="16dp"
-        android:paddingHorizontal="4dp"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="4dp"
         android:text="@string/description"
-        android:textColor="@color/dark_grey"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/purple_200"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/titleDetailsTv"
+        app:layout_constraintStart_toStartOf="@id/titleDetailsTv"
         app:layout_constraintTop_toBottomOf="@id/titleDetailsTv" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sign_in"
         android:textAlignment="center"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/purple_700"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,6 +49,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailSignIn"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="18dp"
@@ -62,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
+            android:textColor="@color/purple_500"
             android:hint="@string/email_or_phone"
             android:inputType="text"
             android:textSize="18sp" />
@@ -69,9 +71,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordSignIn"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="@id/emailSignIn"
         app:layout_constraintStart_toStartOf="@id/emailSignIn"
         app:layout_constraintTop_toBottomOf="@id/emailSignIn">
@@ -81,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
+            android:textColor="@color/purple_500"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:textSize="18sp" />
@@ -92,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:padding="8dp"
+        android:textColor="@color/purple_500"
         android:text="@string/forgot_password"
         app:layout_constraintEnd_toEndOf="@id/passwordSignIn"
         app:layout_constraintTop_toBottomOf="@id/passwordSignIn" />
@@ -101,7 +106,7 @@
         android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/purple_700"
         android:text="@string/log_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/emailSignIn"

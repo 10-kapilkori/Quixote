@@ -16,39 +16,43 @@
 
         <ImageView
             android:id="@+id/noteImageIv"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitCenter"
-            android:src="@color/purple_200"
+            android:scaleType="centerCrop"
+            android:src="@color/teal_700"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/titleTextTv"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
+            android:background="@drawable/textview_background"
+            android:padding="14dp"
             android:text="@string/title"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="italic|bold"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/noteImageIv"
             app:layout_constraintStart_toStartOf="@id/noteImageIv"
-            app:layout_constraintTop_toBottomOf="@id/noteImageIv" />
+            app:layout_constraintTop_toTopOf="@id/noteImageIv" />
 
         <TextView
             android:id="@+id/descriptionTextTv"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
+            android:background="@drawable/textview_background"
+            android:padding="14dp"
             android:text="@string/description"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="end"
+            android:textSize="14sp"
+            android:maxLength="32"
+            app:layout_constraintBottom_toBottomOf="@id/noteImageIv"
             app:layout_constraintEnd_toEndOf="@id/noteImageIv"
-            app:layout_constraintStart_toStartOf="@id/noteImageIv"
-            app:layout_constraintTop_toBottomOf="@id/titleTextTv" />
+            app:layout_constraintStart_toStartOf="@id/noteImageIv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
