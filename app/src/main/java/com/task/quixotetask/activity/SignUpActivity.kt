@@ -1,7 +1,9 @@
 package com.task.quixotetask.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -47,112 +49,229 @@ class SignUpActivity : AppCompatActivity() {
                 val confirmPass = confirmPasswordEtSignUp.text.toString()
                 val password = passwordEtSignUp.text.toString()
 
-                if (email.isEmpty()) {
-                    emailEtSignUp.error = "Email required"
-                    emailEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
+                val result = validateDetails(name, phone, email, confirmPass, password)
 
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    emailEtSignUp.error = "Invalid Email"
-                    emailEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
+//                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+//                    emailEtSignUp.error = "Invalid Email"
+//                    emailEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                if (name.isEmpty()) {
+//                    usernameEtSignUp.error = "Username required"
+//                    usernameEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                if (name.length !in 4..25) {
+//                    usernameEtSignUp.error = "Username should be between 4 and 25 characters"
+//                    usernameEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                if (phone.isEmpty()) {
+//                    phoneEtSignUp.error = "Phone Number required"
+//                    phoneEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                if (phone.length != 10 || phone[0] !in '6'..'9') {
+//                    phoneEtSignUp.error = "Invalid Phone Number"
+//                    phoneEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                if (password.isEmpty()) {
+//                    passwordEtSignUp.error = "Password required"
+//                    passwordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                for (i in password.indices) {
+//                    if (password[i] in 'A'..'Z') {
+//                        charCount++
+//                    }
+//                    if (password[i] in '0'..'9') {
+//                        numberCount++
+//                    }
+//                    if (password[i] !in 'a'..'z' && password[i] !in 'A'..'Z' && password[i] !in '0'..'9') {
+//                        symbolCount++
+//                    }
+//                }
+//
+//                if (password[0] !in 'a'..'z') {
+//                    passwordEtSignUp.error = "Password should start with lowercase characters"
+//                    passwordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//                if (password.length !in 8..15) {
+//                    passwordEtSignUp.error = "Password length should be between 8 and 15 characters"
+//                    passwordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//                if (password.lowercase().contains(name.lowercase())) {
+//                    passwordEtSignUp.error = "Password cannot contain your name"
+//                    passwordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//                if (charCount < 2) {
+//                    passwordEtSignUp.error = "Password should contain >=2 Uppercase characters"
+//                    passwordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//                if (numberCount < 2) {
+//                    passwordEtSignUp.error = "Password should contain >=2 Digits"
+//                    passwordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//                if (symbolCount < 1) {
+//                    passwordEtSignUp.error = "Password should contain >=1 Special Character"
+//                    passwordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                if (confirmPass.isEmpty()) {
+//                    confirmPasswordEtSignUp.error = "Confirm Password required"
+//                    confirmPasswordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
+//
+//                if (confirmPass != password) {
+//                    confirmPasswordEtSignUp.error = "Password Does not matches"
+//                    confirmPasswordEtSignUp.requestFocus()
+//                    return@setOnClickListener
+//                }
 
-                if (name.isEmpty()) {
-                    usernameEtSignUp.error = "Username required"
-                    usernameEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                if (name.length !in 4..25) {
-                    usernameEtSignUp.error = "Username should be between 4 and 25 characters"
-                    usernameEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                if (phone.isEmpty()) {
-                    phoneEtSignUp.error = "Phone Number required"
-                    phoneEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                if (phone.length != 10 || phone[0] !in '6'..'9') {
-                    phoneEtSignUp.error = "Invalid Phone Number"
-                    phoneEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                if (password.isEmpty()) {
-                    passwordEtSignUp.error = "Password required"
-                    passwordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                for (i in password.indices) {
-                    if (password[i] in 'A'..'Z') {
-                        charCount++
-                    }
-                    if (password[i] in '0'..'9') {
-                        numberCount++
-                    }
-                    if (password[i] !in 'a'..'z' && password[i] !in 'A'..'Z' && password[i] !in '0'..'9') {
-                        symbolCount++
-                    }
-                }
-
-                if (password[0] !in 'a'..'z') {
-                    passwordEtSignUp.error = "Password should start with lowercase characters"
-                    passwordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-                if (password.length !in 8..15) {
-                    passwordEtSignUp.error = "Password length should be between 8 and 15 characters"
-                    passwordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-                if (password.lowercase().contains(name.lowercase())) {
-                    passwordEtSignUp.error = "Password cannot contain your name"
-                    passwordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-                if (charCount < 2) {
-                    passwordEtSignUp.error = "Password should contain >=2 Uppercase characters"
-                    passwordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-                if (numberCount < 2) {
-                    passwordEtSignUp.error = "Password should contain >=2 Digits"
-                    passwordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-                if (symbolCount < 1) {
-                    passwordEtSignUp.error = "Password should contain >=1 Special Character"
-                    passwordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                if (confirmPass.isEmpty()) {
-                    confirmPasswordEtSignUp.error = "Confirm Password required"
-                    confirmPasswordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                if (confirmPass != password) {
-                    confirmPasswordEtSignUp.error = "Password Does not matches"
-                    confirmPasswordEtSignUp.requestFocus()
-                    return@setOnClickListener
-                }
-
-                if (name.isNotEmpty() && phone.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPass.isNotEmpty() && password == confirmPass) {
+                if (result) {
                     viewModel.insertUser(Users(name, email, phone, password))
 
                     Toast.makeText(this@SignUpActivity, "User Created", Toast.LENGTH_SHORT).show()
                     finish()
+                } else {
+                    return@setOnClickListener
                 }
+            }
+
+            alreadyUserSignUpTv.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@SignUpActivity,
+                        MainActivity::class.java
+                    )
+                )
+                finish()
             }
         }
     }
+
+    fun validateDetails(
+        name: String,
+        phone: String,
+        email: String,
+        confirmPass: String,
+        password: String
+    ): Boolean {
+        with(binding) {
+            if (email.isEmpty()) {
+                emailEtSignUp.error = "Email required"
+                emailEtSignUp.requestFocus()
+                return false
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                emailEtSignUp.error = "Invalid Email"
+                emailEtSignUp.requestFocus()
+                return false
+            }
+
+            if (name.isEmpty()) {
+                usernameEtSignUp.error = "Username required"
+                usernameEtSignUp.requestFocus()
+                return false
+            }
+
+            if (name.length !in 4..25) {
+                usernameEtSignUp.error = "Username should be between 4 and 25 characters"
+                usernameEtSignUp.requestFocus()
+                return false
+            }
+
+            if (phone.isEmpty()) {
+                phoneEtSignUp.error = "Phone Number required"
+                phoneEtSignUp.requestFocus()
+                return false
+            }
+
+            if (phone.length != 10 || phone[0] !in '6'..'9') {
+                phoneEtSignUp.error = "Invalid Phone Number"
+                phoneEtSignUp.requestFocus()
+                return false
+            }
+
+            if (password.isEmpty()) {
+                passwordEtSignUp.error = "Password required"
+                passwordEtSignUp.requestFocus()
+                return false
+            }
+
+            for (i in password.indices) {
+                if (password[i] in 'A'..'Z') {
+                    charCount++
+                }
+                if (password[i] in '0'..'9') {
+                    numberCount++
+                }
+                if (password[i] !in 'a'..'z' && password[i] !in 'A'..'Z' && password[i] !in '0'..'9') {
+                    symbolCount++
+                }
+            }
+
+            if (password[0] !in 'a'..'z') {
+                passwordEtSignUp.error = "Password should start with lowercase characters"
+                passwordEtSignUp.requestFocus()
+                return false
+            }
+            if (password.length !in 8..15) {
+                passwordEtSignUp.error = "Password length should be between 8 and 15 characters"
+                passwordEtSignUp.requestFocus()
+                return false
+            }
+            if (password.lowercase().contains(name.lowercase())) {
+                passwordEtSignUp.error = "Password cannot contain your name"
+                passwordEtSignUp.requestFocus()
+                return false
+            }
+            if (charCount < 2) {
+                passwordEtSignUp.error = "Password should contain >=2 Uppercase characters"
+                passwordEtSignUp.requestFocus()
+                return false
+            }
+            if (numberCount < 2) {
+                passwordEtSignUp.error = "Password should contain >=2 Digits"
+                passwordEtSignUp.requestFocus()
+                return false
+            }
+            if (symbolCount < 1) {
+                passwordEtSignUp.error = "Password should contain >=1 Special Character"
+                passwordEtSignUp.requestFocus()
+                return false
+            }
+
+            if (confirmPass.isEmpty()) {
+                confirmPasswordEtSignUp.error = "Confirm Password required"
+                confirmPasswordEtSignUp.requestFocus()
+                return false
+            }
+
+            if (confirmPass != password) {
+                confirmPasswordEtSignUp.error = "Password Does not matches"
+                confirmPasswordEtSignUp.requestFocus()
+                return false
+            }
+        }
+
+        return true
+    }
+
 }
 
 
