@@ -20,6 +20,9 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         val note = intent.getParcelableExtra<Notes>("list")
         Log.i(TAG, "onCreate: $note")
 
@@ -30,5 +33,15 @@ class DetailsActivity : AppCompatActivity() {
         binding.titleDetailsTv.text = title
         binding.descriptionDetailsTv.text = description
         binding.imageDetailsIv.setImageURI(Uri.parse(imagePath))
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

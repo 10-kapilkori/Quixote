@@ -32,6 +32,9 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         viewModel = ViewModelProvider(
             this,
             UserViewModelFactory((application as UserApplication).db.getDao())
@@ -61,19 +64,11 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
-            alreadyUserSignUpTv.setOnClickListener {
-                startActivity(
-                    Intent(
-                        this@SignUpActivity,
-                        MainActivity::class.java
-                    )
-                )
-                finish()
-            }
+            alreadyUserSignUpTv.setOnClickListener { finish() }
         }
     }
 
-    fun validateDetails(
+    private fun validateDetails(
         name: String,
         phone: String,
         email: String,
@@ -181,6 +176,15 @@ class SignUpActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
 }
 
 

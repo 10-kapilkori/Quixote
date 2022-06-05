@@ -35,6 +35,9 @@ class AddEditActivity : AppCompatActivity() {
         binding = ActivityAddEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         email = intent.getStringExtra("email")!!
 
         viewModel = ViewModelProvider(
@@ -202,6 +205,15 @@ class AddEditActivity : AppCompatActivity() {
                 Log.i(TAG, "ImagePath: $imagePath")
             }
         }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
 }
 
 
